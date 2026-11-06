@@ -1,21 +1,24 @@
 public class Examen {
     public static void main(String[] args) {
-        double p1 = 12.5;
-        double u1 = 4;
-        double t1 = p1 * u1;
-        double d1 = t1 * 10 / 100;
-        double f1 = t1 - d1;
-        System.out.println("Pedido 1: " + f1 + " euros");
-        double p2 = 8.0;
-        double u2 = 5;
-        double t2 = p2 * u2;
-        double d2 = t2 * 10 / 100;
-        double f2 = t2 - d2;
-        System.out.println("Pedido 2: " + f2 + " euros");
-        double plazo = (f1 + f2) / 3;
+        double pedido1 = 12.5;
+        double unidad1 = 4;
+        double calcularDescuento1 = calcularDescuento(pedido1, unidad1);
+        System.out.println("Pedido 1: " + calcularDescuento1 + " euros");
+        double pedido2 = 8.0;
+        double unidad2 = 5;
+        double final2 = calcularDescuento(pedido2, unidad2);
+        System.out.println("Pedido 2: " + final2 + " euros");
+        double plazo = (calcularDescuento1 + final2) / 3;
         System.out.println("Pago de cada plazo (3 plazos): " + plazo + " euros");
-        double m = (u1 + u2) / 2;
+        double m = (unidad1 + unidad2) / 2;
         System.out.println("Media de unidades por pedido: " + m);
+    }
+
+    private static double calcularDescuento(double pedido1, double unidad1) {
+        double total1 = pedido1 * unidad1;
+        double descuento1 = total1 * 10 / 100;
+        double calcularDescuento1 = total1 - descuento1;
+        return calcularDescuento1;
     }
 }
 
